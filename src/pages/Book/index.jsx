@@ -29,9 +29,16 @@ const books = [
 
 export default class Book extends Component {
   
-
     componentDidMount() {
         this.autoFocusInst.focus();
+    }
+
+    searchContent = (e)=>{
+        console.log(e)
+    }
+    
+    onSubmit = ()=>{
+        console.log(this.state.Search)
     }
 
     renderBook = () => {
@@ -59,7 +66,9 @@ export default class Book extends Component {
     render() {
         return (
             <div>
-                <SearchBar placeholder="Please enter the book name" ref={ref => this.autoFocusInst = ref} />
+                <SearchBar placeholder="Please enter the book name" ref={ref => this.autoFocusInst = ref}
+                    onSubmit={()=>{this.onSubmit()}}
+                />
                 <div className='tag'>
                     <span>{books.length}本书</span>
                 </div>
