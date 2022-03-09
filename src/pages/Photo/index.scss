@@ -1,0 +1,34 @@
+// .photos{
+//     width: 100%;
+//     height: 100%;
+// }
+
+.tag-book{
+    color: #3fc28c;
+    background: #e1f5f8;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    line-height: 20px;
+    padding: 0 8px;
+    display: inline-block;
+}
+
+.photo-list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    .photo{
+        width: 50%;
+        padding: 3px;
+        img{
+            width: 100%;
+        }
+    }
+
+}
