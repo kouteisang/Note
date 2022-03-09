@@ -9,6 +9,7 @@ import { LoadingOutlined, PlusOutlined,
 import Img1 from '../../assets/images/1.png'
 import Bamboo from '../../assets/images/bamboo.png'
 import './index.scss'
+import { even } from 'check-types';
 
 const monthToEnglish = {
     1:"Jan.",
@@ -53,7 +54,9 @@ export default class AddBook extends Component {
         loading: false,
         // imageUrl:Img1,
         write:true,
-        value:3
+        value:3,
+        title:'',
+        content:''
     }
 
     getNowDate = () =>{
@@ -66,7 +69,12 @@ export default class AddBook extends Component {
     }
 
     nextPage = () => {
+      const {title, content} = this.state;
+      if(title != ''){
         this.setState({write:false})
+      }else {
+        Toast.info("请将标题填写完整",1)
+      }
     }
 
     handleChange = info => {
@@ -84,10 +92,10 @@ export default class AddBook extends Component {
             }),
           );
         }
-      };
+    };
 
     getStarNumber = (value)=>{
-        console.log(value)
+        this.setState({value:value});
     }
 
     onFinish = ()=>{
@@ -97,6 +105,14 @@ export default class AddBook extends Component {
 
     prevStep = ()=>{
       this.setState({write:true})
+    }
+
+    handleContent = (event)=>{
+      this.setState({content:event.target.value});
+    }
+
+    handleTitle = (event) => {
+      this.setState({title:event.target.value});
     }
 
     render() {
@@ -124,9 +140,15 @@ export default class AddBook extends Component {
                         <div>     
                             <input
                             className='input-book-title'
-                            type="text" placeholder="Title" />
+                            type="text" 
+                            placeholder="Title" 
+                            onChange = {this.handleTitle}/>
                             <Divider />
-                            <textarea className='book-review' placeholder="Place enter the content..."></textarea>
+                            <textarea 
+                              className='book-review' 
+                              placeholder="Place enter the content..."
+                              onChange = {this.handleContent}
+                            ></textarea>
                             <div className='next-step' onClick={()=>{this.nextPage()}}>
                                 <DownOutlined style={{fontSize:'20px'}}/>
                             </div>
@@ -159,8 +181,7 @@ export default class AddBook extends Component {
                               <img src={Bamboo}/>
                             </div>
                         </div>
-                    }
-                    
+                    } 
             </div>
         )
     }
