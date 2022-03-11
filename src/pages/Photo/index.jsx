@@ -27,6 +27,10 @@ export default class Photo extends Component {
         this.setState({isShow:true});
     }
 
+    removeShadow = () => {
+        this.setState({isShow:false});
+    }
+
     renderAllPhotos = () => {
         return photoList.map(item=>{
             return (
@@ -39,9 +43,10 @@ export default class Photo extends Component {
 
     render() {
         const {photoShow, isShow} =  this.state;
-        console.log(photoShow)
         return (
             <div className='photos'>
+                <div className={`${isShow ? "shadow" : " "}`}
+                    onClick = {()=>{this.removeShadow()}}></div>
                 <div className='tag-book'>
                     <span>{photoList.length}张图片</span>
                 </div>
