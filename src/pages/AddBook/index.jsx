@@ -132,12 +132,12 @@ export default class AddBook extends Component {
                     onLeftClick={() => {this.props.history.push('/book')}}
                     >添加图书</NavBar>
                     <div className='nowTime'>
-                        {this.getNowDate()}
+                       <span>{this.getNowDate()}</span>
                     </div>
                    
                     {
                         write ? 
-                        <div>     
+                        <div className='books-page'>     
                             <input
                             className='input-book-title'
                             type="text" 
