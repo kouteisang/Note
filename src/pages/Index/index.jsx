@@ -32,7 +32,7 @@ const list = [
     iconClick:<CameraFilled />
   },
   {
-    title:"About",
+    title:"Todo",
     key:"about",
     path:'/home/about',
     icon:<PushpinOutlined />,

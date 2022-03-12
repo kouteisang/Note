@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+//导入字体图标库的样式文件
+import './assets/fonts/iconfont.css'
 
 ReactDOM.render(
   <React.StrictMode>
